@@ -11,26 +11,22 @@ body {
     background-color: var(--bg-color);
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 18px 18px;
-    min-height: 100dvh; /* melhor que 100vh para mobile */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    min-height: 100dvh;
 }
 
-/* CENTRALIZAÇÃO REAL */
+/* TOPO CENTRALIZADO */
 .wrapper {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    padding-top: 80px; /* joga tudo pro topo */
 }
 
 .center-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 35px;
     text-align: center;
 }
 
@@ -86,6 +82,10 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
 
+    .wrapper {
+        padding-top: 60px;
+    }
+
     .main-link {
         font-size: 2.2rem;
     }
@@ -96,7 +96,7 @@ body {
 
     .info-box {
         right: 15px;
-        left: 15px;   /* vira centralizado no mobile */
+        left: 15px;
         bottom: 20px;
         max-width: none;
         text-align: center;
