@@ -11,35 +11,37 @@ body {
     background-color: var(--bg-color);
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 18px 18px;
+    min-height: 100dvh; /* melhor que 100vh para mobile */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-/* Central */
+/* CENTRALIZAÇÃO REAL */
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 60px 20px 120px 20px; /* espaço inferior maior */
 }
 
 .center-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px;
+    gap: 40px;
+    text-align: center;
 }
 
-/* Links */
+/* LINKS */
 .main-link {
-    font-size: 2.6rem;
+    font-size: 3rem;
     font-weight: 900;
     color: white;
     text-decoration: none;
     transition: 0.3s ease;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 }
 
 .main-link:hover {
@@ -47,9 +49,9 @@ body {
     transform: scale(1.08);
 }
 
-/* Logo */
+/* LOGO */
 .logo {
-    width: 200px;
+    width: 220px;
     transition: 0.3s ease;
 }
 
@@ -57,17 +59,18 @@ body {
     transform: scale(1.05);
 }
 
-/* Caixa verde */
+/* CAIXA VERDE FIXA */
 .info-box {
-    width: calc(100% - 40px);
-    max-width: 420px;
-    margin: 0 20px 40px 20px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
     background: #1db954;
     color: white;
-    padding: 25px;
+    padding: 22px 26px;
     border-radius: 22px;
-    font-size: 1rem;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    max-width: 300px;
+    font-size: 0.95rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .info-box a {
@@ -76,13 +79,12 @@ body {
     text-decoration: underline;
 }
 
-/* MOBILE AJUSTES */
-@media (max-width: 768px) {
+.info-box a:hover {
+    opacity: 0.8;
+}
 
-    .wrapper {
-        padding-top: 40px;
-        padding-bottom: 60px;
-    }
+/* MOBILE */
+@media (max-width: 768px) {
 
     .main-link {
         font-size: 2.2rem;
@@ -93,6 +95,10 @@ body {
     }
 
     .info-box {
-        font-size: 0.95rem;
+        right: 15px;
+        left: 15px;   /* vira centralizado no mobile */
+        bottom: 20px;
+        max-width: none;
+        text-align: center;
     }
 }
