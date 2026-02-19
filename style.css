@@ -2,28 +2,27 @@
     --bg-color: #0d0d0d;
     --text-color: #ffffff;
     --hover-color: #FFD700;
-    --dot-color: rgba(255, 255, 255, 0.07);
+    --dot-color: rgba(255, 255, 255, 0.06);
 }
 
 body {
     margin: 0;
-    height: 100vh;
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg-color);
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 18px 18px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    position: relative;
 }
 
-/* Centralização real */
+/* Central */
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 60px 20px 120px 20px; /* espaço inferior maior */
 }
 
 .center-content {
@@ -33,11 +32,11 @@ body {
     gap: 35px;
 }
 
-/* Links grandes */
+/* Links */
 .main-link {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: 900;
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     transition: 0.3s ease;
     letter-spacing: 3px;
@@ -45,14 +44,13 @@ body {
 
 .main-link:hover {
     color: var(--hover-color);
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
-/* Logo maior */
+/* Logo */
 .logo {
     width: 200px;
     transition: 0.3s ease;
-    cursor: pointer;
 }
 
 .logo:hover {
@@ -61,16 +59,15 @@ body {
 
 /* Caixa verde */
 .info-box {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+    width: calc(100% - 40px);
+    max-width: 420px;
+    margin: 0 20px 40px 20px;
     background: #1db954;
     color: white;
-    padding: 24px;
-    border-radius: 20px;
-    max-width: 320px;
+    padding: 25px;
+    border-radius: 22px;
     font-size: 1rem;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
 
 .info-box a {
@@ -79,23 +76,23 @@ body {
     text-decoration: underline;
 }
 
-.info-box a:hover {
-    opacity: 0.8;
-}
-
-/* Responsivo */
+/* MOBILE AJUSTES */
 @media (max-width: 768px) {
+
+    .wrapper {
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+
     .main-link {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .logo {
-        width: 160px;
+        width: 170px;
     }
 
     .info-box {
-        left: 15px;
-        right: 15px;
-        bottom: 20px;
+        font-size: 0.95rem;
     }
 }
