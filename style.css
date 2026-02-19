@@ -1,79 +1,103 @@
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #111;
+    --button-bg: #ffffff;
+    --button-text: #000;
+    --dot-color: rgba(0, 0, 0, 0.07);
+}
+
+/* Dark mode automático */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0d0d0d;
+        --text-color: #fff;
+        --button-bg: #1a1a1a;
+        --button-text: #fff;
+        --dot-color: rgba(255, 255, 255, 0.07);
+    }
+}
+
 body {
-    background-color: #050505; /* Preto profundo */
     margin: 0;
     height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 18px 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
     overflow: hidden;
 }
 
-/* Detalhe de luz suave no fundo */
-.background-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
-    z-index: -1;
-}
-
 .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
     text-align: center;
-    z-index: 1;
 }
 
 .logo {
     width: 180px;
-    margin-bottom: 40px;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+    transition: 0.4s ease;
 }
 
-/* Botão Liquid Glass com Refração Cromática */
-.glass-button {
-    display: flex;
-    flex-direction: column;
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.main-button {
+    padding: 20px 40px;
+    border-radius: 14px;
     text-decoration: none;
-    padding: 25px 60px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    position: relative;
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    
-    /* Simulação de Refração Cromática (Sombras coloridas sutis) */
-    box-shadow: 
-        0 8px 32px 0 rgba(0, 0, 0, 0.8),
-        inset -2px -2px 4px rgba(255, 0, 0, 0.1), /* Vermelho */
-        inset 2px 2px 4px rgba(0, 255, 255, 0.1);  /* Ciano */
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: var(--button-bg);
+    color: var(--button-text);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
 }
 
-.glass-button:hover {
-    background: rgba(255, 255, 255, 0.07);
+.main-button:hover {
     transform: translateY(-5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    /* Intensifica a refração no hover */
-    box-shadow: 
-        0 12px 40px 0 rgba(0, 0, 0, 0.9),
-        inset -3px -3px 6px rgba(255, 0, 0, 0.2),
-        inset 3px 3px 6px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-.button-text-top {
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    /* Refração no texto */
-    text-shadow: 1px 0 rgba(255,0,0,0.5), -1px 0 rgba(0,255,255,0.5);
-}
-
-.button-text-bottom {
-    color: rgba(255, 255, 255, 0.5);
+/* Caixa verde */
+.info-box {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: #1db954;
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 300px;
     font-size: 0.9rem;
-    letter-spacing: 2px;
-    margin-top: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.info-box a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.info-box a:hover {
+    opacity: 0.8;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .info-box {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+    }
 }
