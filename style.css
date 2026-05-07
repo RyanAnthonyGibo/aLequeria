@@ -12,6 +12,11 @@ body {
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 18px 18px;
     min-height: 100dvh;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* WRAPPER CENTRALIZADO */
@@ -37,6 +42,8 @@ body {
 
 .logo {
     width: 240px;
+    height: auto;
+    max-width: 100%;
     transition: 0.3s ease;
 }
 
@@ -66,6 +73,8 @@ body {
     text-align: center;
     transition: 0.3s ease;
     background: rgba(255, 255, 255, 0.05);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .official-link:hover {
@@ -100,10 +109,86 @@ body {
     opacity: 0.8;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-
+/* EXTRA SMALL DEVICES - iPhone SE, 12 Mini (até 375px) */
+@media (max-width: 375px) {
     .wrapper {
+        padding: 20px 16px;
+        min-height: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .logo-container {
+        margin-bottom: 30px;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .links-container {
+        max-width: 100%;
+        gap: 15px;
+    }
+
+    .official-link {
+        font-size: 1rem;
+        padding: 14px 16px;
+    }
+
+    .info-box {
+        right: 12px;
+        left: 12px;
+        bottom: 15px;
+        max-width: none;
+        text-align: center;
+        font-size: 0.85rem;
+        padding: 16px 20px;
+    }
+}
+
+/* SMALL DEVICES - iPhone 6-11 (375px a 430px) */
+@media (min-width: 376px) and (max-width: 430px) {
+    .wrapper {
+        padding: 30px 18px;
+        min-height: auto;
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .logo-container {
+        margin-bottom: 35px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    .links-container {
+        max-width: 100%;
+        gap: 16px;
+    }
+
+    .official-link {
+        font-size: 1.05rem;
+        padding: 15px 18px;
+    }
+
+    .info-box {
+        right: 12px;
+        left: 12px;
+        bottom: 15px;
+        max-width: none;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 18px 22px;
+    }
+}
+
+/* MEDIUM DEVICES - Tablets pequenos (431px a 768px) */
+@media (min-width: 431px) and (max-width: 768px) {
+    .wrapper {
+        padding: 35px 25px;
         min-height: auto;
         padding-top: 40px;
         padding-bottom: 40px;
@@ -118,11 +203,12 @@ body {
     }
 
     .links-container {
-        max-width: 100%;
+        max-width: 90%;
+        gap: 18px;
     }
 
     .official-link {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         padding: 16px 20px;
     }
 
@@ -132,5 +218,36 @@ body {
         bottom: 20px;
         max-width: none;
         text-align: center;
+    }
+}
+
+/* DESKTOP - Telas grandes (acima de 768px) */
+@media (min-width: 769px) {
+    .wrapper {
+        padding: 40px 20px;
+    }
+
+    .logo-container {
+        margin-bottom: 50px;
+    }
+
+    .logo {
+        width: 240px;
+    }
+
+    .links-container {
+        max-width: 400px;
+        gap: 20px;
+    }
+
+    .official-link {
+        font-size: 1.3rem;
+        padding: 18px 24px;
+    }
+
+    .info-box {
+        right: 25px;
+        bottom: 25px;
+        max-width: 300px;
     }
 }
